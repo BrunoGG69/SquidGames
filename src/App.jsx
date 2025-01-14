@@ -1,19 +1,14 @@
-import Hero from "./sections/Hero.jsx";
-import Navbar from "./components/Navbar.jsx";
-import About from "./sections/About.jsx";
-import GameList from "./sections/GameList.jsx";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import CallScreen from "./pages/CallScreen";
 
-const App = () => {
+function App() {
     return (
-        <div className="relative">
-            {/*<Navbar />*/}
-            <Hero />
-            <About />
-            <GameList/>
-        </div>
-    )
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/registration" element={<CallScreen />} />
+        </Routes>
+    );
 }
 
-export default App
-
-
+export default App;

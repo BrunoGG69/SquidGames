@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import salesman from "../assets/staff/salesman.jpg";
 import frontman from "../assets/staff/frontman.jpg";
 import worker from "../assets/staff/worker.jpg";
@@ -46,17 +47,29 @@ const staffData = [
 
 const StaffInfo = () => {
     return (
-        <div className="flex items-center justify-center px-6 pb-20">
+        <section id="aboutStaffSection" className="flex items-center justify-center px-6 pb-20">
             <div>
-                <h1 className="text-4xl md:text-5xl font-bold p-16 font-squid text-center bg-black">
+                <motion.h1
+                    className="text-4xl md:text-5xl font-bold p-16 font-squid text-center bg-black"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
                     About The Staff
-                </h1>
+                </motion.h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {staffData.map((staff) => (
-                        <div
+                    {staffData.map((staff, index) => (
+                        <motion.div
                             key={staff.id}
                             className="border-4 border-gray-300 rounded-3xl p-2 shadow-xl w-full max-w-md mx-auto relative group transition-all hover:scale-110 hover:shadow-[0_0_20px_10px_rgba(255,255,255,0.3)]"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{
+                                duration: 0.6,
+                                delay: index * 0.2,
+                            }}
                         >
                             <div className="relative">
                                 <img
@@ -66,7 +79,9 @@ const StaffInfo = () => {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent rounded-2xl">
                                     <div className="flex items-end justify-center h-full p-4">
-                                        <p className="text-white text-lg font-semibold text-center font-squid mb-4">
+                                        <p
+                                            className="text-white text-lg font-semibold text-center font-squid mb-4"
+                                        >
                                             {staff.name}
                                         </p>
                                     </div>
@@ -77,11 +92,11 @@ const StaffInfo = () => {
                                     {staff.description}
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

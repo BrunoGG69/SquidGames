@@ -16,7 +16,7 @@ const GameList = () => {
     ];
 
     return (
-        <div className="flex flex-col items-center justify-center pb-32">
+        <section id="gameListSection" className="flex flex-col items-center justify-center pb-32">
             <h1 className="text-4xl md:text-5xl font-bold mb-8 font-squid text-center">
                 Game List
             </h1>
@@ -60,7 +60,7 @@ const GameList = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 
